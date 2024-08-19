@@ -1,0 +1,187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8191CAB4-DA8B-4478-A8A0-04EF7FD189BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Secure_Voting_System</RootNamespace>
+    <AssemblyName>Secure Voting System</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Addcandidate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addcandidate.Designer.cs">
+      <DependentUpon>Addcandidate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addelection.Designer.cs">
+      <DependentUpon>addelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="addvoters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="addvoters.Designer.cs">
+      <DependentUpon>addvoters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectionCommission.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectionCommission.Designer.cs">
+      <DependentUpon>ElectionCommission.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="staffadd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staffadd.Designer.cs">
+      <DependentUpon>staffadd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="staffdashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staffdashboard.Designer.cs">
+      <DependentUpon>staffdashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewelection.Designer.cs">
+      <DependentUpon>viewelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewresult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewresult.Designer.cs">
+      <DependentUpon>viewresult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewstaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewstaff.Designer.cs">
+      <DependentUpon>viewstaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewvoter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewvoter.Designer.cs">
+      <DependentUpon>viewvoter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Voter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Voter.Designer.cs">
+      <DependentUpon>Voter.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Addcandidate.resx">
+      <DependentUpon>Addcandidate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addelection.resx">
+      <DependentUpon>addelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="addvoters.resx">
+      <DependentUpon>addvoters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectionCommission.resx">
+      <DependentUpon>ElectionCommission.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="staffadd.resx">
+      <DependentUpon>staffadd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staffdashboard.resx">
+      <DependentUpon>staffdashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewelection.resx">
+      <DependentUpon>viewelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewresult.resx">
+      <DependentUpon>viewresult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewstaff.resx">
+      <DependentUpon>viewstaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewvoter.resx">
+      <DependentUpon>viewvoter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Voter.resx">
+      <DependentUpon>Voter.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
