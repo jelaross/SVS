@@ -111,7 +111,7 @@ namespace Secure_Voting_System
             cmd3.Parameters.AddWithValue("@address", address);
             cmd3.Parameters.AddWithValue("@constituency", constituency);
             SqlDataReader dr3 = cmd3.ExecuteReader();
-            MessageBox.Show("voter added");
+            MessageBox.Show("voter added successfully");
             con.Close();
         }
     }
