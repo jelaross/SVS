@@ -9,6 +9,8 @@ namespace Secure_Voting_System
     static class Program
     {
         /// <summary>
+        /// 
+        /// 
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
@@ -16,7 +18,8 @@ namespace Secure_Voting_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new addelection());
+            Application.Run(new Addcandidate());
+
         }
     }
 }

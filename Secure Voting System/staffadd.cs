@@ -22,42 +22,44 @@ namespace Secure_Voting_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == "") {
+            String usr = textBox1.Text;
+            String pass = textBox2.Text;
+            String name = textBox3.Text;
+            String dob = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            String gender = comboBox1.Text;
+            String address = textBox5.Text;
+
+            if (usr == "") {
                 MessageBox.Show("username is mandatory");
                 return;
             }
-            if (textBox2.Text == "")
+            if (pass == "")
             {
                 MessageBox.Show("password is mandatory");
                 return;
             }
-            if (textBox3.Text == "")
+            if (name == "")
             {
                 MessageBox.Show("name is mandatory");
                 return;
             }
-            if (dateTimePicker1.Text == "")
+            if (dob == "")
             {
                 MessageBox.Show("dob is mandatory");
                 return;
             }
-            if (comboBox1.Text == "")
+            if (gender == "")
             {
                 MessageBox.Show("gender is mandatory");
                 return;
             }
-            if (textBox5.Text == "")
+            if (address == "")
             {
                 MessageBox.Show("address is mandatory");
                 return;
             }
 
-            String usr = textBox1.Text;
-            String pass = textBox2.Text;
-            String name = textBox3.Text;
-            String date = dateTimePicker1.Value.ToString("yyyy-MM-dd");
-            String gender = comboBox1.Text;
-            String addres = textBox5.Text;
+
             con.Open();
             String query1 = "SELECT * FROM login_details WHERE username=@usr";
             SqlCommand cmd = new SqlCommand(query1, con);
@@ -65,6 +67,7 @@ namespace Secure_Voting_System
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read()) {
                 MessageBox.Show("Username already taken");
+                con.Close();
                 return;
             }
             con.Close();
@@ -75,15 +78,15 @@ namespace Secure_Voting_System
             cmd2.Parameters.AddWithValue("@pass", pass);
             SqlDataReader dr2 = cmd2.ExecuteReader();
             con.Close();
-            String query3 = "INSERT INTO staff VALUES(COALESCE((SELECT MAX(sid)+1 FROM staff), 1), @name, @date, @gender, (SELECT lid FROM login_details where username=@usr), @address)";
+            String query3 = "INSERT INTO staff VALUES(COALESCE((SELECT MAX(sid)+1 FROM staff), 1), @name, @dob, @gender, (SELECT lid FROM login_details where username=@usr), @address)";
 
             con.Open();
             SqlCommand cmd3 = new SqlCommand(query3, con);
             cmd3.Parameters.AddWithValue("@usr", usr);
             cmd3.Parameters.AddWithValue("@name", name);
-            cmd3.Parameters.AddWithValue("@date", date);
+            cmd3.Parameters.AddWithValue("@dob", dob);
             cmd3.Parameters.AddWithValue("gender", gender);
-            cmd3.Parameters.AddWithValue("@address",addres );
+            cmd3.Parameters.AddWithValue("@address",address );
             SqlDataReader dr3 = cmd3.ExecuteReader();
             MessageBox.Show("staff added");
             con.Close();

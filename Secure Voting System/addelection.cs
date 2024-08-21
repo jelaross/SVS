@@ -49,6 +49,19 @@ namespace Secure_Voting_System
                 MessageBox.Show("Select the consistuency");
                 return;
             }
+            String query = "INSERT INTO election VALUES(COALESCE((SELECT MAX(eid)+1 FROM election), 1), @elec_name, @const, @elec_date)";
+            con.Open();
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@elec_name", textBox1.Text);
+            cmd.Parameters.AddWithValue("@const", comboBox1.Text);
+            cmd.Parameters.AddWithValue("@elec_date", dateTimePicker1.Value.ToString("yyyy-MM-dd"));
+            int dr = cmd.ExecuteNonQuery();
+
+            if(dr > 0){
+                MessageBox.Show("election added successfully");
+            
+            
+            }
         }
     }
 }
