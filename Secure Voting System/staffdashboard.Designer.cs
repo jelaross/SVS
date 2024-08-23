@@ -59,12 +59,14 @@
             this.toolStripLabel4.Name = "toolStripLabel4";
             this.toolStripLabel4.Size = new System.Drawing.Size(67, 15);
             this.toolStripLabel4.Text = "Add voters";
+            this.toolStripLabel4.Click += new System.EventHandler(this.toolStripLabel4_Click);
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
             this.toolStripLabel5.Size = new System.Drawing.Size(67, 15);
             this.toolStripLabel5.Text = "View Voters";
+            this.toolStripLabel5.Click += new System.EventHandler(this.toolStripLabel5_Click);
             // 
             // staffdashboard
             // 

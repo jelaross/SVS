@@ -45,7 +45,7 @@ namespace Secure_Voting_System
                         staff_win.Show();
                         break;
                     case "voter":
-                        staffdashboard voter_win = new staffdashboard();
+                        Voter voter_win = new Voter(dr[0].ToString());
                         voter_win.Show();
                         break;
                     default:

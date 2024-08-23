@@ -16,5 +16,17 @@ namespace Secure_Voting_System
         {
             InitializeComponent();
         }
+
+        private void toolStripLabel4_Click(object sender, EventArgs e)
+        {
+            addvoters obj = new addvoters();
+            obj.Show();
+        }
+
+        private void toolStripLabel5_Click(object sender, EventArgs e)
+        {
+            viewvoter obj = new viewvoter();
+            obj.Show();
+        }
     }
 }
