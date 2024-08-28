@@ -41,12 +41,12 @@ namespace Secure_Voting_System
         private void button1_Click(object sender, EventArgs e)
         {
             if(textBox1.Text==""){
-                MessageBox.Show("Election name is mandatory");
+                new FloatingNotification(this, "Election name is mandatory", "#0D7C66");
                 return;      
             }
             if (comboBox1.Text == "")
             {
-                MessageBox.Show("Select the consistuency");
+                new FloatingNotification(this, "Select the consistuency", "#FABC3F");
                 return;
             }
             String query = "INSERT INTO election VALUES(COALESCE((SELECT MAX(eid)+1 FROM election), 1), @elec_name, @const, @elec_date)";

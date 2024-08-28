@@ -84,30 +84,30 @@ namespace Secure_Voting_System
 
             if (name == "")
             {
-                MessageBox.Show("name is mandatory");
+                new FloatingNotification(this, "name is mandatory","orange");
                 return;
             }
 
             if (election_name == "")
             {
-                MessageBox.Show("election name is mandatory");
+                new FloatingNotification(this, "election name is mandatory", "orange");
                 return;
             }
 
             if (party == "")
             {
-                MessageBox.Show("party is mandatory");
+                new FloatingNotification(this, "party is mandatory", "orange");
                 return;
             }
 
             if (photo_path == "")
             {
-                MessageBox.Show("photo is mandatory");
+                new FloatingNotification(this, "photo is mandatory", "orange");
                 return;
             }
             if (symbol_path == "")
             {
-                MessageBox.Show("symbol is mandatory");
+                new FloatingNotification(this, "symbol is mandatory","orange");
                 return;
             }
 

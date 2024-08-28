@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAWRJREFUaEPt
-        mI1NwzAQRjMCIzACG8AojNANYAPYADagI3QD2IARYAP4ntRIUXV1e04CH+ie9KQosZ075cdnD0VRFIW4
-        kNfyTr7s5ZhzXPsT3Mh3+XVErtHGmgcZBR9JW0s2Mgq4JX2suJIfMgq2JX0upQ1bGQV6jvS1oedpjNLX
-        Al6NKMCMFq8Xv9IouIwWv2M+9Ci4jIxhQRRcRht2MgrwHOlrw5zvxK5ceZRRoC3pYwdVbeYVo611JUz9
-        9Cmj4JFrdjXWMZjgCPZZvu3lmHNWtVVRFMX/IFPF2lS8wD4VuyGvcpzwbuUpaDO2py9jMNaPwoTGjVvL
-        21Yy0yQOZc+LsVedNBn8SUYBREbJtJI4lHstnhDbndHNTjlNJpPEVO69CJmnEEkCvUmMEsMsetYYa9m9
-        dllid2Rpu1aTTk9j9F6mmbOhsJZdGxWVyIpWItFgv2lXIvy16Oik5T5YURRFlmH4BkcmgbufiiTaAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
-  <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAatJREFUaEPt
-        mYFNxDAMRTsCIzACIzACG8AItwFsACOwASMcG3AbwAawAfhJrWRFTuj14iSq/KUnVbkktXWN89NOoVAo
-        FNqTHoQ34Vv4neGatntheN0Jn8ISfA760HdIPQlW0CUehaF0EKxA18DYIXQrWAGeA3N017tgBQcn4UV4
-        na+tPnAUuupasAID65EpPYLM1U25wFj4OeWKQte1wmNjBXUl5MRv1hjm6iZrfXwJ/4k+6Tjm6iYrkTUB
-        bR3npl0ngv1gxy5h2ZguibBgMYBpMJfCnKVCUVXc6EOwAqkBczdJZos5PJfSPlRNP4J185pwdnFVyZLU
-        xtWy1HC6a3F1xJHIBrokgnei0nDu0O0UBswgpEWCvoyxfBc0T4QAdd3X5VkHo8fq8spYqxI2TyS1FrpP
-        qqU9DdKyOs0TwTfpf0Qftm5omMX10q4PUYy1vFfzRABbgRl8Vm3AxrYYRf2yDuhLe87udEnEg0hkjXaT
-        iF6w3uhC4SLrph64K929PeAe7srtxLVInYKreH5L73K3wpzua8MSH2vwTViMS2COYT/8hEKhUGjvmqY/
-        BpWe4R852k0AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>

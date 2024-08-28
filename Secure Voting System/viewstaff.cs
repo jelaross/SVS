@@ -31,5 +31,10 @@ namespace Secure_Voting_System
             js.DataSource = ds.Tables[0].DefaultView;
             con.Close();
         }
+
+        private void viewstaff_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

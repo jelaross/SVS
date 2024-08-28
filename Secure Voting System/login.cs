@@ -37,15 +37,15 @@ namespace Secure_Voting_System
                 {
 
                     case "commissioner":
-                        ElectionCommission elec_win = new ElectionCommission();
+                        ElectionCommission elec_win = new ElectionCommission(dr[1].ToString());
                         elec_win.Show();
                         break;
                     case "staff":
-                        staffdashboard staff_win = new staffdashboard();
+                        staffdashboard staff_win = new staffdashboard(dr[1].ToString());
                         staff_win.Show();
                         break;
                     case "voter":
-                        Voter voter_win = new Voter(dr[0].ToString());
+                        Voter voter_win = new Voter(dr[1].ToString());
                         voter_win.Show();
                         break;
                     default:
@@ -66,6 +66,16 @@ namespace Secure_Voting_System
         }
 
         private void login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

@@ -30,32 +30,32 @@ namespace Secure_Voting_System
             String address = textBox5.Text;
 
             if (usr == "") {
-                MessageBox.Show("username is mandatory");
+                new FloatingNotification(this, "username is mandatory", "orange");
                 return;
             }
             if (pass == "")
             {
-                MessageBox.Show("password is mandatory");
+                new FloatingNotification(this, "password is mandatory", "orange");
                 return;
             }
             if (name == "")
             {
-                MessageBox.Show("name is mandatory");
+                new FloatingNotification(this, "name is mandatory", "orange");
                 return;
             }
             if (dob == "")
             {
-                MessageBox.Show("dob is mandatory");
+                new FloatingNotification(this, "dob is mandatory", "orange");
                 return;
             }
             if (gender == "")
             {
-                MessageBox.Show("gender is mandatory");
+                new FloatingNotification(this, "gender is mandatory", "orange");
                 return;
             }
             if (address == "")
             {
-                MessageBox.Show("address is mandatory");
+                new FloatingNotification(this, "address is mandatory", "orange");
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace Secure_Voting_System
             cmd.Parameters.AddWithValue("@usr", usr);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read()) {
-                MessageBox.Show("Username already taken");
+                new FloatingNotification(this, "Username already exists", "Red");
                 con.Close();
                 return;
             }
@@ -88,7 +88,7 @@ namespace Secure_Voting_System
             cmd3.Parameters.AddWithValue("gender", gender);
             cmd3.Parameters.AddWithValue("@address",address );
             SqlDataReader dr3 = cmd3.ExecuteReader();
-            MessageBox.Show("staff added");
+            new FloatingNotification(this, "staff added", "Green");
             con.Close();
         }
     }
