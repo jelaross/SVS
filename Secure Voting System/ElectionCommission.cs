@@ -32,7 +32,7 @@ namespace Secure_Voting_System
         private void toolStripLabel3_Click(object sender, EventArgs e)
         {
             panel2.Controls.Clear();
-            viewstaff obj = new viewstaff();
+            editstaff obj = new editstaff();
             obj.TopLevel = false;
             obj.Dock = DockStyle.Fill;
             panel2.Controls.Add(obj);
@@ -83,6 +83,16 @@ namespace Secure_Voting_System
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

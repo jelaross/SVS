@@ -95,11 +95,11 @@
     <Compile Include="staffdashboard.Designer.cs">
       <DependentUpon>staffdashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="viewelection.cs">
+    <Compile Include="Edit election.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="viewelection.Designer.cs">
-      <DependentUpon>viewelection.cs</DependentUpon>
+    <Compile Include="Edit election.Designer.cs">
+      <DependentUpon>Edit election.cs</DependentUpon>
     </Compile>
     <Compile Include="viewresult.cs">
       <SubType>Form</SubType>
@@ -107,11 +107,11 @@
     <Compile Include="viewresult.Designer.cs">
       <DependentUpon>viewresult.cs</DependentUpon>
     </Compile>
-    <Compile Include="viewstaff.cs">
+    <Compile Include="editstaff.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="viewstaff.Designer.cs">
-      <DependentUpon>viewstaff.cs</DependentUpon>
+    <Compile Include="editstaff.Designer.cs">
+      <DependentUpon>editstaff.cs</DependentUpon>
     </Compile>
     <Compile Include="viewvoter.cs">
       <SubType>Form</SubType>
@@ -151,6 +151,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="staffadd.resx">
       <DependentUpon>staffadd.cs</DependentUpon>
@@ -158,14 +159,14 @@
     <EmbeddedResource Include="staffdashboard.resx">
       <DependentUpon>staffdashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="viewelection.resx">
-      <DependentUpon>viewelection.cs</DependentUpon>
+    <EmbeddedResource Include="Edit election.resx">
+      <DependentUpon>Edit election.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewresult.resx">
       <DependentUpon>viewresult.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="viewstaff.resx">
-      <DependentUpon>viewstaff.cs</DependentUpon>
+    <EmbeddedResource Include="editstaff.resx">
+      <DependentUpon>editstaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewvoter.resx">
       <DependentUpon>viewvoter.cs</DependentUpon>
@@ -185,6 +186,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-543466848-612x612.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-543466848-612x612 %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\istockphoto-543466848-612x612__1_-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -41,12 +41,12 @@ namespace Secure_Voting_System
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string query = "select name,party,photo,symbol from candidate where eid=(select eid from election where election_name=@election_name)";
+            string query = "select name,party,photo,symbol,cid from candidate where eid=(select eid from election where election_name=@election_name)";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@election_name", comboBox1.Text);
             SqlDataReader dr = cmd.ExecuteReader();
-            new ottuPetti(tableLayoutPanel1, dr);
+            new ottuPetti(tableLayoutPanel1, dr, 1, 7);
             con.Close();
            
         }
@@ -54,6 +54,12 @@ namespace Secure_Voting_System
         private void Voter_Load(object sender, EventArgs e)
         {
 
+        }
+        public void vote(string cid) 
+        { 
+            
+        
+        
         }
     }
 }

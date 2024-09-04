@@ -18,7 +18,7 @@ namespace Secure_Voting_System
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Voter(""));
+            Application.Run(new ElectionCommission(""));
 
         }
     }

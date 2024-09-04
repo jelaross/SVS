@@ -40,7 +40,7 @@ public class FloatingNotification
 
 public class ottuPetti
 {
-    public ottuPetti(TableLayoutPanel table, SqlDataReader data){
+    public ottuPetti(TableLayoutPanel table, SqlDataReader data, int vid, int eid){
 
         table.Visible = false;
         table.Controls.Clear();
@@ -54,9 +54,9 @@ public class ottuPetti
                 Text = data[0].ToString(),
                 Font = new Font("Segoe UI", 12),
                 ForeColor = Color.White,
-                //BackColor = Color.OrangeRed,
+                BackColor = Color.DarkGreen,
                 Padding = new Padding(10),
-                BorderStyle = BorderStyle.FixedSingle
+                
             };
 
             Label party = new Label
@@ -65,29 +65,30 @@ public class ottuPetti
                 Text = data[1].ToString(),
                 Font = new Font("Segoe UI", 12),
                 ForeColor = Color.White,
-                //BackColor = Color.OrangeRed,
+                BackColor = Color.DarkRed,
                 Padding = new Padding(10),
-                BorderStyle = BorderStyle.FixedSingle
+                
             };
 
             PictureBox symbol = new PictureBox
             {
-                BorderStyle = BorderStyle.FixedSingle,
+               
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Image = Image.FromFile(data[2].ToString()),
             };
 
             PictureBox photo = new PictureBox
             {
-                BorderStyle = BorderStyle.FixedSingle,
+               
                 SizeMode = PictureBoxSizeMode.StretchImage,
                 Image = Image.FromFile(data[3].ToString()),
             };
 
             Button btn = new Button { 
                 Text = "VOTE",
-                
+                Tag = data[4].ToString(),
             };
+            btn.Click += (sender, e) => vote(table, Convert.ToInt16(btn.Tag), vid, eid);
           
 
             table.Controls.Add(name, 0, i);
@@ -102,5 +103,38 @@ public class ottuPetti
 
         table.Visible = true;
 
+    }
+
+    public void vote(TableLayoutPanel table, int cid, int vid, int eid)
+    {
+        SqlConnection con = new SqlConnection("Server=DESKTOP-HVOUKVA; database=voting_system; Integrated Security=true");
+        string query = "INSERT INTO vote1 VALUES(COALESCE((SELECT MAX(vote_id)+1 FROM vote1), 1), @vid, @eid, @vote, @date)";
+        con.Open();
+        SqlCommand cmd = new SqlCommand(query, con);
+        cmd.Parameters.Add("@vid", SqlDbType.Int).Value = vid;
+        cmd.Parameters.Add("@eid", SqlDbType.Int).Value = eid;
+        cmd.Parameters.Add("@vote", SqlDbType.Int).Value = cid;
+        cmd.Parameters.Add("@date", SqlDbType.Date).Value = "2024-08-19";
+        SqlDataReader dr = cmd.ExecuteReader();
+        con.Close();
+        table.Visible = false;
+        table.Controls.Clear();
+
+        Label msg = new Label
+        {
+            AutoSize = true,
+            Text = "voted",
+            Font = new Font("Segoe UI", 12),
+            ForeColor = Color.White,
+            BackColor = Color.Green,
+            Padding = new Padding(10),
+
+        };
+        table.ColumnCount = 1;
+        table.RowCount = 1;
+        table.Controls.Add(msg);
+
+        table.Visible = true;
+    
     }
 }

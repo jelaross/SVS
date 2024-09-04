@@ -49,28 +49,28 @@
             this.toolStripLabel5});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(70, 378);
+            this.toolStrip1.Size = new System.Drawing.Size(68, 378);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(67, 15);
-            this.toolStripLabel1.Text = "Home page";
+            this.toolStripLabel1.Size = new System.Drawing.Size(65, 15);
+            this.toolStripLabel1.Text = "homepage";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // toolStripLabel4
             // 
             this.toolStripLabel4.Name = "toolStripLabel4";
-            this.toolStripLabel4.Size = new System.Drawing.Size(67, 15);
+            this.toolStripLabel4.Size = new System.Drawing.Size(65, 15);
             this.toolStripLabel4.Text = "Add voters";
             this.toolStripLabel4.Click += new System.EventHandler(this.toolStripLabel4_Click);
             // 
             // toolStripLabel5
             // 
             this.toolStripLabel5.Name = "toolStripLabel5";
-            this.toolStripLabel5.Size = new System.Drawing.Size(67, 15);
+            this.toolStripLabel5.Size = new System.Drawing.Size(65, 15);
             this.toolStripLabel5.Text = "View Voters";
             this.toolStripLabel5.Click += new System.EventHandler(this.toolStripLabel5_Click);
             // 
@@ -78,7 +78,7 @@
             // 
             this.lable_username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lable_username.AutoSize = true;
-            this.lable_username.Location = new System.Drawing.Point(252, 9);
+            this.lable_username.Location = new System.Drawing.Point(254, 9);
             this.lable_username.Name = "lable_username";
             this.lable_username.Size = new System.Drawing.Size(62, 13);
             this.lable_username.TabIndex = 27;
@@ -88,7 +88,7 @@
             // 
             this.SignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SignIn.AutoSize = true;
-            this.SignIn.Location = new System.Drawing.Point(190, 9);
+            this.SignIn.Location = new System.Drawing.Point(192, 9);
             this.SignIn.Name = "SignIn";
             this.SignIn.Size = new System.Drawing.Size(52, 13);
             this.SignIn.TabIndex = 26;
@@ -99,17 +99,17 @@
             this.panel1.Controls.Add(this.lable_username);
             this.panel1.Controls.Add(this.SignIn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(70, 0);
+            this.panel1.Location = new System.Drawing.Point(68, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(335, 31);
+            this.panel1.Size = new System.Drawing.Size(337, 31);
             this.panel1.TabIndex = 28;
             // 
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(70, 31);
+            this.panel2.Location = new System.Drawing.Point(68, 31);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(335, 347);
+            this.panel2.Size = new System.Drawing.Size(337, 347);
             this.panel2.TabIndex = 29;
             // 
             // staffdashboard
