@@ -96,7 +96,7 @@ namespace Secure_Voting_System
                 textBox2.Text = "";
                 textBox3.Text = "";
                 comboBox1.Text = "";
-                MessageBox.Show("value updated");
+                MessageBox.Show("values updated");
 
             }
            
