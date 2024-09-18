@@ -18,7 +18,10 @@ namespace Secure_Voting_System
         {
             InitializeComponent();
             fillgrid(dataGridView1);
+            fillgrid(dataGridView2);
+            fillgrid(dataGridView3);
             fillcombo();
+            
         }
 
         public void fillgrid(DataGridView js)
@@ -59,7 +62,7 @@ namespace Secure_Voting_System
             if (dr.Read())
             {
                 textBox1.Text = dr[1].ToString();
-                textBox2.Text = dr[2].ToString();
+               
                 textBox3.Text = dr[3].ToString();
             }
             con.Close();
@@ -72,35 +75,49 @@ namespace Secure_Voting_System
 
         private void button2_Click_1(object sender, EventArgs e)
         {
+            if (comboBox2.Text == "")
+            {
+                new FloatingNotification(this, "Please select Sid", "#d33235");
+                return;
+            }
             string query = "delete from staff where sid='" + comboBox2.Text + "'";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             if (cmd.ExecuteNonQuery() > 0)
             {
-                MessageBox.Show("staff details deleted");
+                new FloatingNotification(this, "Staff deleted", "#41a45d");
             }
 
             con.Close();
+            fillgrid(dataGridView1);
             fillgrid(dataGridView2);
+            fillgrid(dataGridView3);
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string query = "update staff set name='" + textBox1.Text + "', dob='" + textBox2.Text + "',gender='" + textBox3.Text + "' where sid='" + comboBox1.Text + "'";
+            if(comboBox1.Text == ""){
+                new FloatingNotification(this, "Please select Sid", "#d33235");
+                return;
+            }
+            string query = "update staff set name='" + textBox1.Text + "', dob='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "',gender='" + textBox3.Text + "' where sid='" + comboBox1.Text + "'";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
             if (cmd.ExecuteNonQuery() > 0)
             {
 
                 textBox1.Text = "";
-                textBox2.Text = "";
+                
                 textBox3.Text = "";
                 comboBox1.Text = "";
-                MessageBox.Show("values updated");
+                new FloatingNotification(this, "Staff updated", "#41a45d");
 
             }
            
             con.Close();
+            fillgrid(dataGridView1);
+            fillgrid(dataGridView2);
             fillgrid(dataGridView3);
         }
 
@@ -113,8 +130,21 @@ namespace Secure_Voting_System
             if (dr.Read())
             {
                 textBox1.Text = dr[1].ToString();
-                textBox2.Text = dr[2].ToString();
+                // textBox2.Text = ;
                 textBox3.Text = dr[3].ToString();
+
+                DateTime parsedDate;
+                bool success = DateTime.TryParse(dr[2].ToString(), out parsedDate);
+
+                if (success)
+                {
+                    // Set the DateTimePicker's value
+                    dateTimePicker1.Value = parsedDate;
+                }
+                else
+                {
+                    MessageBox.Show("Invalid date format");
+                }
             }
             con.Close();
         }

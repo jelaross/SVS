@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Secure_Voting_System.Properties;
 
 public class FloatingNotification
 {
@@ -38,103 +39,32 @@ public class FloatingNotification
     }
 }
 
-public class ottuPetti
+
+public class ImageResizer
 {
-    public ottuPetti(TableLayoutPanel table, SqlDataReader data, int vid, int eid){
-
-        table.Visible = false;
-        table.Controls.Clear();
-        table.ColumnCount = 5;
-        //table.RowCount = 20;
-        int i = 0;
-        while (data.Read())
-        {
-            Label name = new Label{
-                AutoSize = true,
-                Text = data[0].ToString(),
-                Font = new Font("Segoe UI", 12),
-                ForeColor = Color.White,
-                BackColor = Color.DarkGreen,
-                Padding = new Padding(10),
-                
-            };
-
-            Label party = new Label
-            {
-                AutoSize = true,
-                Text = data[1].ToString(),
-                Font = new Font("Segoe UI", 12),
-                ForeColor = Color.White,
-                BackColor = Color.DarkRed,
-                Padding = new Padding(10),
-                
-            };
-
-            PictureBox symbol = new PictureBox
-            {
-               
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Image = Image.FromFile(data[2].ToString()),
-            };
-
-            PictureBox photo = new PictureBox
-            {
-               
-                SizeMode = PictureBoxSizeMode.StretchImage,
-                Image = Image.FromFile(data[3].ToString()),
-            };
-
-            Button btn = new Button { 
-                Text = "VOTE",
-                Tag = data[4].ToString(),
-            };
-            btn.Click += (sender, e) => vote(table, Convert.ToInt16(btn.Tag), vid, eid);
-          
-
-            table.Controls.Add(name, 0, i);
-            table.Controls.Add(party, 1, i);
-            table.Controls.Add(symbol, 2, i);
-            table.Controls.Add(photo, 3, i);
-            table.Controls.Add( btn,4, i);
-
-            i++;
-
-        }
-
-        table.Visible = true;
-
-    }
-
-    public void vote(TableLayoutPanel table, int cid, int vid, int eid)
+    public static void ResizeImage(string inputPath, string outputPath, int width, int height)
     {
-        SqlConnection con = new SqlConnection("Server=DESKTOP-HVOUKVA; database=voting_system; Integrated Security=true");
-        string query = "INSERT INTO vote1 VALUES(COALESCE((SELECT MAX(vote_id)+1 FROM vote1), 1), @vid, @eid, @vote, @date)";
-        con.Open();
-        SqlCommand cmd = new SqlCommand(query, con);
-        cmd.Parameters.Add("@vid", SqlDbType.Int).Value = vid;
-        cmd.Parameters.Add("@eid", SqlDbType.Int).Value = eid;
-        cmd.Parameters.Add("@vote", SqlDbType.Int).Value = cid;
-        cmd.Parameters.Add("@date", SqlDbType.Date).Value = "2024-08-19";
-        SqlDataReader dr = cmd.ExecuteReader();
-        con.Close();
-        table.Visible = false;
-        table.Controls.Clear();
-
-        Label msg = new Label
+        // Load the original image
+        using (Image originalImage = Image.FromFile(inputPath))
         {
-            AutoSize = true,
-            Text = "voted",
-            Font = new Font("Segoe UI", 12),
-            ForeColor = Color.White,
-            BackColor = Color.Green,
-            Padding = new Padding(10),
+            // Create a new bitmap with the desired size
+            using (Bitmap resizedImage = new Bitmap(width, height))
+            {
+                // Create a Graphics object from the bitmap
+                using (Graphics graphics = Graphics.FromImage(resizedImage))
+                {
+                    // Set the quality of the resizing
+                    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                    graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
 
-        };
-        table.ColumnCount = 1;
-        table.RowCount = 1;
-        table.Controls.Add(msg);
+                    // Draw the original image onto the new bitmap with the new size
+                    graphics.DrawImage(originalImage, 0, 0, width, height);
+                }
 
-        table.Visible = true;
-    
+                // Save the resized image to the specified path
+                resizedImage.Save(outputPath);
+            }
+        }
     }
 }

@@ -38,6 +38,7 @@
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label1.Location = new System.Drawing.Point(152, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
@@ -66,6 +67,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(391, 371);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBox1);

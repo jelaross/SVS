@@ -30,32 +30,32 @@ namespace Secure_Voting_System
             String address = textBox5.Text;
 
             if (usr == "") {
-                new FloatingNotification(this, "username is mandatory", "orange");
+                new FloatingNotification(this, "username is mandatory", "#d33235");
                 return;
             }
             if (pass == "")
             {
-                new FloatingNotification(this, "password is mandatory", "orange");
+                new FloatingNotification(this, "password is mandatory", "#d33235");
                 return;
             }
             if (name == "")
             {
-                new FloatingNotification(this, "name is mandatory", "orange");
+                new FloatingNotification(this, "name is mandatory", "#d33235");
                 return;
             }
             if (dob == "")
             {
-                new FloatingNotification(this, "dob is mandatory", "orange");
+                new FloatingNotification(this, "dob is mandatory", "#d33235");
                 return;
             }
             if (gender == "")
             {
-                new FloatingNotification(this, "gender is mandatory", "orange");
+                new FloatingNotification(this, "gender is mandatory", "#d33235");
                 return;
             }
             if (address == "")
             {
-                new FloatingNotification(this, "address is mandatory", "orange");
+                new FloatingNotification(this, "address is mandatory", "#d33235");
                 return;
             }
 
@@ -66,7 +66,7 @@ namespace Secure_Voting_System
             cmd.Parameters.AddWithValue("@usr", usr);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.Read()) {
-                new FloatingNotification(this, "Username already exists", "Red");
+                new FloatingNotification(this, "Username already exists", "#d33235");
                 con.Close();
                 return;
             }
@@ -88,7 +88,7 @@ namespace Secure_Voting_System
             cmd3.Parameters.AddWithValue("gender", gender);
             cmd3.Parameters.AddWithValue("@address",address );
             SqlDataReader dr3 = cmd3.ExecuteReader();
-            new FloatingNotification(this, "staff added", "Green");
+            new FloatingNotification(this, "staff added", "#41a45d");
             con.Close();
         }
     }

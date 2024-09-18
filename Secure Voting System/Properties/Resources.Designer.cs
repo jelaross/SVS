@@ -63,6 +63,36 @@ namespace Secure_Voting_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap eye {
+            get {
+                object obj = ResourceManager.GetObject("eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eyeClose {
+            get {
+                object obj = ResourceManager.GetObject("eyeClose", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap eyeClose1 {
+            get {
+                object obj = ResourceManager.GetObject("eyeClose1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap istockphoto_543466848_612x612 {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-543466848-612x612", resourceCulture);
@@ -86,6 +116,26 @@ namespace Secure_Voting_System.Properties {
         internal static System.Drawing.Bitmap istockphoto_543466848_612x612__1__removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("istockphoto-543466848-612x612__1_-removebg-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pngwing_com__1_ {
+            get {
+                object obj = ResourceManager.GetObject("pngwing.com (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -26,6 +26,10 @@ namespace Secure_Voting_System
             pass = textBox2.Text;
             con.Open();
 
+            if (usr == "" || pass == "") {
+                new FloatingNotification(this, "Please fill all fields", "#d33235");
+            }
+
             query = "SELECT * FROM login_details WHERE username=@user AND password=@pass";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@user", usr);
@@ -58,7 +62,7 @@ namespace Secure_Voting_System
             }
             else {
 
-                MessageBox.Show("invalid login");
+                new FloatingNotification(this, "invalid login", "#d33235");
             }
             con.Close();
 
@@ -76,6 +80,25 @@ namespace Secure_Voting_System
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toggleEye(object sender, EventArgs e)
+        {
+            PictureBox obj = sender as PictureBox;
+            if (textBox2.UseSystemPasswordChar == true)
+            {
+                textBox2.UseSystemPasswordChar = false;
+                obj.Image = Secure_Voting_System.Properties.Resources.eyeClose;
+            }
+            else{
+                textBox2.UseSystemPasswordChar = true;
+                obj.Image = Secure_Voting_System.Properties.Resources.eye;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }

@@ -21,7 +21,6 @@ namespace Secure_Voting_System
         {
             InitializeComponent();
             fillcombo();
-            new FloatingNotification(this, "hello.");
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -84,30 +83,30 @@ namespace Secure_Voting_System
 
             if (name == "")
             {
-                new FloatingNotification(this, "name is mandatory","orange");
+                new FloatingNotification(this, "name is mandatory", "#d33235");
                 return;
             }
 
             if (election_name == "")
             {
-                new FloatingNotification(this, "election name is mandatory", "orange");
+                new FloatingNotification(this, "election name is mandatory", "#d33235");
                 return;
             }
 
             if (party == "")
             {
-                new FloatingNotification(this, "party is mandatory", "orange");
+                new FloatingNotification(this, "party is mandatory", "#d33235");
                 return;
             }
 
             if (photo_path == "")
             {
-                new FloatingNotification(this, "photo is mandatory", "orange");
+                new FloatingNotification(this, "photo is mandatory", "#d33235");
                 return;
             }
             if (symbol_path == "")
             {
-                new FloatingNotification(this, "symbol is mandatory","orange");
+                new FloatingNotification(this, "symbol is mandatory", "#d33235");
                 return;
             }
 
@@ -124,14 +123,17 @@ namespace Secure_Voting_System
 
             try
             {
-                File.Copy(photo_path, destination_photo_path, overwrite: true);
-                File.Copy(symbol_path, destination_symbol_path, overwrite: true);
+                //File.Copy(photo_path, destination_photo_path, overwrite: true);
+                //File.Copy(symbol_path, destination_symbol_path, overwrite: true);
                 //new FloatingNotification(this, "File copied successfully.");
+
+                ImageResizer.ResizeImage(photo_path, destination_photo_path, 100, 100);
+                ImageResizer.ResizeImage(symbol_path, destination_symbol_path, 100, 100);
             }
             catch (IOException ex)
             {
                 Console.WriteLine("An error occurred while copying the file: " + ex.Message);
-                new FloatingNotification(this, "Cant copy Photo");
+                new FloatingNotification(this, "Cant copy Photo", "#d33235");
                 return;
             }
             String query = "INSERT INTO candidate (cid,eid,name,photo,symbol,party) VALUES(COALESCE((SELECT MAX(cid)+1 FROM candidate), 1), (SELECT eid FROM election where election_name=@election_name), @name, @photo, @symbol, @party)";
@@ -143,8 +145,19 @@ namespace Secure_Voting_System
             cmd.Parameters.AddWithValue("@symbol", destination_symbol_path);
             cmd.Parameters.AddWithValue("@party", party);
             SqlDataReader dr = cmd.ExecuteReader();
-            new FloatingNotification(this, "Candidate Added");
+            //textBox3.Text = "";
+            //textBox4.Text = "";
+            //textBox6.Text = "";
+            //textBox7.Text = "";
+            //pictureBox1.Image = null;
+            //pictureBox2.Image = null;
+            new FloatingNotification(this, "Candidate Added", "#41a45d");
             con.Close();
+
+        }
+
+        private void Addcandidate_Load(object sender, EventArgs e)
+        {
 
         }
     }

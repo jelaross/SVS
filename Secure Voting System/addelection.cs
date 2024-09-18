@@ -62,6 +62,7 @@ namespace Secure_Voting_System
             
             
             }
+            con.Close();
         }
     }
 }

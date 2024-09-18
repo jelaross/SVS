@@ -13,9 +13,11 @@ E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secu
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.addelection.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.addvoters.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.staffdashboard.resources
-E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.viewelection.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.viewresult.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.viewvoter.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.Voter.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.Form1.resources
 E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.editstaff.resources
+E:\Secure Voting System\Secure Voting System\Secure Voting System\obj\Debug\Secure_Voting_System.editelection.resources
+E:\Secure Voting System\Secure Voting System\Secure Voting System\bin\Debug\Resources\eye.png
+E:\Secure Voting System\Secure Voting System\Secure Voting System\bin\Debug\Resources\eyeClose.png
