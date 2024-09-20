@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using Secure_Voting_System.Properties;
+using System.Configuration;
 
 namespace Secure_Voting_System
 {
@@ -16,24 +17,32 @@ namespace Secure_Voting_System
     public partial class Voter : Form
     {
         String USER = "";
+        int VOTER_ID;
+        SqlConnection con = new SqlConnection(ConfigurationManager.AppSettings["SQL_CONNECTION"]);
 
-        SqlConnection con = new SqlConnection("Server=DESKTOP-HVOUKVA; database=voting_system; Integrated Security=true");
-        public Voter(String username_from_login)
+        public Voter(String username_from_login, int voterId)
         {
+
             InitializeComponent();
-            fillcombo();
+
+            new FloatingNotification(this, "bluejhfh");
+
+            this.USER = username_from_login;
+            this.VOTER_ID = voterId;
+
             lable_username.Text = username_from_login;
-            USER = username_from_login;
-
-
+            fillcombo();
         }
-
 
         public void fillcombo()
         {
-            string query = "select election_name from election";
+            DateTime date = DateTime.Now;
+            string ndate = date.ToString("yyyy-MM-dd");
+            string query = "SELECT e.election_name FROM election e JOIN vote1 v ON e.eid = v.eid WHERE e.election_date = @electiondate AND not v.vid = @vid";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@electiondate", ndate);
+            cmd.Parameters.AddWithValue("@vid", 3);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -151,13 +160,8 @@ namespace Secure_Voting_System
 
             //fuck
             con.Close();
-           
-        }
 
-        private void Voter_Load(object sender, EventArgs e)
-        {
-
-        }
+        }   
         public void vote(object sender, EventArgs e, int vid, int eid) 
         {
             con.Open();

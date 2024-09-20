@@ -59,8 +59,6 @@ namespace Secure_Voting_System
 
             if(dr > 0){
                 MessageBox.Show("election added successfully");
-            
-            
             }
             con.Close();
         }

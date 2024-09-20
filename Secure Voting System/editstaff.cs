@@ -80,15 +80,21 @@ namespace Secure_Voting_System
                 new FloatingNotification(this, "Please select Sid", "#d33235");
                 return;
             }
-            string query = "delete from staff where sid='" + comboBox2.Text + "'";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-                new FloatingNotification(this, "Staff deleted", "#41a45d");
-            }
 
+            con.Open();
+            SqlTransaction transaction = con.BeginTransaction();
+
+            SqlCommand command1 = new SqlCommand("DELETE FROM login_details where lid=(SELECT lid FROM staff where sid=@sid)", con, transaction);
+            command1.Parameters.AddWithValue("@sid", comboBox2.Text);
+            command1.ExecuteNonQuery();
+
+            SqlCommand command2 = new SqlCommand("DELETE FROM staff where sid=@sid", con, transaction);
+            command2.Parameters.AddWithValue("@sid", comboBox2.Text);
+            command2.ExecuteNonQuery();
+
+            transaction.Commit();
             con.Close();
+
             fillgrid(dataGridView1);
             fillgrid(dataGridView2);
             fillgrid(dataGridView3);
