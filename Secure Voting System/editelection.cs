@@ -19,22 +19,7 @@ namespace Secure_Voting_System
             InitializeComponent();
             fillgrid(dataGridView1);
             fillgrid(dataGridView2);
-            fillgrid(dataGridView3);
             fillcombo();
-            fillconcombo();
-        }
-        public void fillconcombo()
-        {
-            string query = "select area from constituency";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                comboBox3.Items.Add(dr[0].ToString());
-
-            }
-            con.Close();
         }
 
         public void fillgrid(DataGridView js)
@@ -55,7 +40,6 @@ namespace Secure_Voting_System
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                comboBox1.Items.Add(dr[0].ToString());
                 comboBox2.Items.Add(dr[0].ToString());
             }
             con.Close();
@@ -81,78 +65,18 @@ namespace Secure_Voting_System
             con.Close();
 
             fillgrid(dataGridView1);
-            fillgrid(dataGridView2);
-            fillgrid(dataGridView3);
-
-
-           
+            fillgrid(dataGridView2);           
         }
 
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        //private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        }
+        //}
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
+        //private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //{
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-            string query = "select  * from election where eid='" + comboBox1.Text + "'";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                textBox1.Text = dr[1].ToString();
-                //textBox2.Text = dr[2].ToString();
-               // textBox3.Text = dr[3].ToString();
-                DateTime parsedDate;
-                bool success = DateTime.TryParse(dr[3].ToString(), out parsedDate);
-
-                if (success)
-                {
-                    // Set the DateTimePicker's value
-                    dateTimePicker1.Value = parsedDate;
-                }
-                else
-                {
-                    MessageBox.Show("Invalid date format");
-                }
-            }
-            con.Close();
-        }
-
-       
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            string query = "update election set election_name='" + textBox1.Text + "', constituency='" + comboBox3.Text + "',election_date='" + dateTimePicker1.Value.ToString("yyyy-MM-dd") + "' where eid='" + comboBox1.Text + "'";
-            con.Open();
-            SqlCommand cmd = new SqlCommand(query, con);
-            if (cmd.ExecuteNonQuery() > 0)
-            {
-
-                textBox1.Text = "";
-                //textBox2.Text = "";
-                //textBox3.Text = "";
-                comboBox1.Text = "";
-                MessageBox.Show("value updated");
-
-                
-            }
-            con.Close();
-            fillgrid(dataGridView1);
-            fillgrid(dataGridView2);
-            fillgrid(dataGridView3);
-           
-        }
-
-        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        //}
     }
 }

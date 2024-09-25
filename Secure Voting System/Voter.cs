@@ -37,12 +37,17 @@ namespace Secure_Voting_System
         public void fillcombo()
         {
             DateTime date = DateTime.Now;
-            string ndate = date.ToString("yyyy-MM-dd");
-            string query = "SELECT e.election_name FROM election e JOIN vote1 v ON e.eid = v.eid WHERE e.election_date = @electiondate AND not v.vid = @vid";
+            string today = date.ToString("yyyy-MM-dd");
+            string query = @"SELECT election_name FROM election 
+                                WHERE eid NOT IN (SELECT eid from vote1 where vid=@vid) 
+                                AND election_date=@today 
+                                AND constituency=(SELECT constituency from voter where vid=@avid)";
             con.Open();
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@electiondate", ndate);
-            cmd.Parameters.AddWithValue("@vid", 3);
+            //MessageBox.Show(today+VOTER_ID);
+            cmd.Parameters.AddWithValue("@today", today);
+            cmd.Parameters.AddWithValue("@vid", VOTER_ID);
+            cmd.Parameters.AddWithValue("@avid", VOTER_ID);
             SqlDataReader dr = cmd.ExecuteReader();
             while (dr.Read())
             {
@@ -54,40 +59,39 @@ namespace Secure_Voting_System
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int seleid, vid;
 
             con.Open();
-            String eidquery = "select eid from election where election_name=@election_name";
-            SqlCommand eidcmd = new SqlCommand(eidquery, con);
-            eidcmd.Parameters.AddWithValue("@election_name", comboBox1.Text);
-            SqlDataReader eiddata = eidcmd.ExecuteReader();
-            if (eiddata.Read())
-            {
-                seleid = Convert.ToInt16(eiddata[0]);
-            }
-            else {
-                new FloatingNotification(this,"Election Not Found");
-                return;
+            //String eidquery = "select eid from election where election_name=@election_name";
+            //SqlCommand eidcmd = new SqlCommand(eidquery, con);
+            //eidcmd.Parameters.AddWithValue("@election_name", comboBox1.Text);
+            //SqlDataReader eiddata = eidcmd.ExecuteReader();
+            //if (eiddata.Read())
+            //{
+            //    seleid = Convert.ToInt16(eiddata[0]);
+            //}
+            //else {
+            //    new FloatingNotification(this,"Election Not Found");
+            //    return;
             
-            }
-            eiddata.Close();
+            //}
+            //eiddata.Close();
 
             //con.Open();
-            String vidquery = "select vid from voter where name=@name";
-            SqlCommand vidcmd = new SqlCommand(vidquery, con);
-            vidcmd.Parameters.AddWithValue("@name", USER);
-            SqlDataReader viddata = vidcmd.ExecuteReader();
-            if (viddata.Read())
-            {
-                vid = Convert.ToInt16(viddata[0]);
-            }
-            else
-            {
-                new FloatingNotification(this, "voter Not Found");
-                return;
+            //String vidquery = "select vid from voter where name=@name";
+            //SqlCommand vidcmd = new SqlCommand(vidquery, con);
+            //vidcmd.Parameters.AddWithValue("@name", USER);
+            //SqlDataReader viddata = vidcmd.ExecuteReader();
+            //if (viddata.Read())
+            //{
+            //    vid = Convert.ToInt16(viddata[0]);
+            //}
+            //else
+            //{
+            //    new FloatingNotification(this, "voter Not Found");
+            //    return;
 
-            }
-            viddata.Close();
+            //}
+            //viddata.Close();
 
             string query = "select name,party,photo,symbol,cid from candidate where eid=(select eid from election where election_name=@election_name)";
             SqlCommand cmd = new SqlCommand(query, con);
@@ -143,7 +147,7 @@ namespace Secure_Voting_System
                     Text = "VOTE",
                     Tag = data[4].ToString(),
                 };
-                btn.Click += (senderBtn, eBtn) => vote(senderBtn, eBtn, vid, seleid);
+                btn.Click += (senderBtn, eBtn) => vote(senderBtn, eBtn);
 
 
                 table.Controls.Add(name, 0, i);
@@ -162,24 +166,49 @@ namespace Secure_Voting_System
             con.Close();
 
         }   
-        public void vote(object sender, EventArgs e, int vid, int eid) 
+        public void vote(object sender, EventArgs e) 
         {
+            int eid;
+
             con.Open();
             Button btn = sender as Button;
             int cid = Convert.ToInt32(btn.Tag.ToString());
-            DateTime date = DateTime.Now;
-            string vdate = date.ToString("yyyy-MM-dd");
 
-            String query = "INSERT INTO vote1 VALUES(COALESCE((SELECT MAX(vote_id)+1 FROM vote1), 1), @vid, @eid, @cid, @vdate)";
+            String eidquery = "select eid from election where election_name=@election_name";
+            SqlCommand eidcmd = new SqlCommand(eidquery, con);
+            eidcmd.Parameters.AddWithValue("@election_name", comboBox1.Text);
+            SqlDataReader eiddata = eidcmd.ExecuteReader();
+            if (eiddata.Read())
+            {
+                eid = Convert.ToInt16(eiddata[0]);
+            }
+            else
+            {
+                new FloatingNotification(this, "Election Not Found");
+                return;
+
+            }
+            eiddata.Close();
+
+            String query = "INSERT INTO vote1 VALUES(COALESCE((SELECT MAX(vote_id)+1 FROM vote1), 1), @vid, @eid, @cid)";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@vid", vid);
+            cmd.Parameters.AddWithValue("@vid", VOTER_ID);
             cmd.Parameters.AddWithValue("@eid", eid);
             cmd.Parameters.AddWithValue("@cid", cid);
-            cmd.Parameters.AddWithValue("@vdate", vdate);
             SqlDataReader dr = cmd.ExecuteReader();
             con.Close();
            
             new FloatingNotification(panel1, "voted");
+        }
+
+        private void voter_shown(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

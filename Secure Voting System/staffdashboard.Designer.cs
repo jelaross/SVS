@@ -42,6 +42,7 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.BackColor = System.Drawing.Color.LavenderBlush;
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
@@ -78,9 +79,11 @@
             // 
             this.lable_username.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lable_username.AutoSize = true;
-            this.lable_username.Location = new System.Drawing.Point(254, 9);
+            this.lable_username.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lable_username.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lable_username.Location = new System.Drawing.Point(256, 9);
             this.lable_username.Name = "lable_username";
-            this.lable_username.Size = new System.Drawing.Size(62, 13);
+            this.lable_username.Size = new System.Drawing.Size(68, 13);
             this.lable_username.TabIndex = 27;
             this.lable_username.Text = "placeholder";
             // 
@@ -88,14 +91,17 @@
             // 
             this.SignIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SignIn.AutoSize = true;
-            this.SignIn.Location = new System.Drawing.Point(192, 9);
+            this.SignIn.Font = new System.Drawing.Font("Rockwell", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignIn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SignIn.Location = new System.Drawing.Point(194, 9);
             this.SignIn.Name = "SignIn";
-            this.SignIn.Size = new System.Drawing.Size(52, 13);
+            this.SignIn.Size = new System.Drawing.Size(54, 13);
             this.SignIn.TabIndex = 26;
             this.SignIn.Text = "SignIn As";
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.Indigo;
             this.panel1.Controls.Add(this.lable_username);
             this.panel1.Controls.Add(this.SignIn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -106,6 +112,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.MediumPurple;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(68, 31);
             this.panel2.Name = "panel2";

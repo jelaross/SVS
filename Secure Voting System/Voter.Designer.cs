@@ -125,6 +125,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(675, 547);
             this.panel2.TabIndex = 9;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // Voter
             // 
@@ -137,6 +138,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Voter";
             this.Text = "Voter";
+            this.Shown += new System.EventHandler(this.voter_shown);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
